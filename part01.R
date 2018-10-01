@@ -11,3 +11,25 @@ checkPalindrome <- function(inputString) {
     return(stringi::stri_reverse(inputString) == inputString)
     
 }
+
+#A function, Given an array of integers, find the pair of adjacent elements that has the 
+#largest product and return that product.
+
+adjacentElementsProduct <- function(inputArray) {
+    x <- "notGiven"
+    prev <- "notGiven"
+    for (i in inputArray){
+        if(prev != "notGiven"){
+             if(x == "notGiven"){
+                x <- i * prev
+            }else if(i * prev > x){
+                x <- i * prev
+            }
+            prev <- i
+
+        }else{
+            prev <- i;
+        } 
+    }
+    result <- x;
+}
