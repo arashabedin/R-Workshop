@@ -20,16 +20,13 @@ adjacentElementsProduct <- function(inputArray) {
     prev <- "notGiven"
     for (i in inputArray){
         if(prev != "notGiven"){
-             if(x == "notGiven"){
-                x <- i * prev
-            }else if(i * prev > x){
+             if(x == "notGiven" | i * prev > x ){
                 x <- i * prev
             }
-            prev <- i
-
-        }else{
-            prev <- i;
-        } 
+        }
+    prev <- i;
+         
     }
     result <- x;
 }
+
