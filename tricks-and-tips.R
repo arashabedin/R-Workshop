@@ -24,3 +24,8 @@ fit <- lm(mpg ~ wt, mtcars)
 ggplot(data = mtcars, mapping = aes(x = wt, y = mpg)) +
   geom_point() + geom_smooth(method = "lm", se = FALSE) +
   geom_segment(data = cbind(mtcars, pred=predict(fit, mtcars)), aes(yend = pred, xend = wt), color = "red")
+
+
+#Using geom_line we can create our own line to check if our prediction fits the changes
+ggplot(mtcars) + geom_point(aes(x = wt, y = mpg)) +
+geom_line(aes(x = wt, y = -5.344 * wt + 37.285), color = "red")
