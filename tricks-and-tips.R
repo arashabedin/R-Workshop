@@ -17,3 +17,10 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + ylim(10, 45) +
 #Following code will give us the same as alongwith its Linear Regression
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + ylim(10, 45) +
   geom_point() +  geom_smooth(method = "lm", se = false)
+
+#Following code will do the almost simmilar t above, but it will give us  the root-mean-square
+#distance between the predicted values and response values 
+fit <- lm(mpg ~ wt, mtcars)
+ggplot(data = mtcars, mapping = aes(x = wt, y = mpg)) +
+  geom_point() + geom_smooth(method = "lm", se = FALSE) +
+  geom_segment(data = cbind(mtcars, pred=predict(fit, mtcars)), aes(yend = pred, xend = wt), color = "red")
