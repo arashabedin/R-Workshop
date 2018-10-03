@@ -30,3 +30,23 @@ adjacentElementsProduct <- function(inputArray) {
     result <- x;
 }
 
+# Make array Consecutive
+# For statues = [6, 2, 3, 8], the output should be
+# makeArrayConsecutive2(statues) = 3.
+# We needs statues of sizes 4, 5 and 7.
+
+makeArrayConsecutive2 <- function(statues) {
+     print(statues)
+    newStatus <- sort(unlist(statues))
+    print(newStatus)
+    x <- 0;
+    prev <- "ungiven"
+    for (i in newStatus){
+        if(prev != "ungiven"){
+            a <- i - prev
+            if(a > 1) x = x + (a-1)
+        }   
+            prev = i
+    }
+    results <- x
+}
